@@ -1,0 +1,8 @@
+# ninja log v5
+0	33	1698739316433798484	build.ninja	7c0b11a2a7d0a143
+1	322	1698756302840750780	CMakeFiles/image2ascii.dir/argument-parser.cpp.o	8722a97d0a02bfb1
+322	408	1698756302920751730	image2ascii	837bef273035a619
+1	350	1698736885575894048	CMakeFiles/image2ascii.dir/command_line_parser.cpp.o	301d6fea849696b
+1	431	1698756139470823973	CMakeFiles/image2ascii.dir/main.cpp.o	b8abd2c9e5af5e5a
+1	316	1698756333505115140	CMakeFiles/image2ascii.dir/argument-parser.cpp.o	8722a97d0a02bfb1
+316	401	1698756333589116139	image2ascii	837bef273035a619
