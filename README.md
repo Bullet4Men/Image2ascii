@@ -28,23 +28,22 @@ To build you need: gcc or clang, cmake, ninja or make.
 3. `make` or `ninja`
 
 ## Samples
-1. Skunks
 ![example0](images/example0.png)
 <br>
 ![image1](images/image0.jpeg)
-2. Mountains
+<br>
 ![example0](images/example1.png)
 <br>
 ![image1](images/image1.jpeg)
-3. Lake
+<br>
 ![example0](images/example2.png)
 <br>
 ![image1](images/image2.jpeg)
-4. Tree
+<br>
 ![example0](images/example3.png)
 <br>
 ![image1](images/image3.jpeg)
-5. Forest
+<br>
 ![example0](images/example4.png)
 <br>
 ![image1](images/image4.jpeg)
