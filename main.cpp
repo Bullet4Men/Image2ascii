@@ -54,7 +54,9 @@ int main(int argc, char **argv)
 
     Magick::InitializeMagick("");
 
-    std::string symbols = R"(`^\",:;Il!i~+_-?][}{1)(|\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$)";
+//    std::string symbols = R"(`^\",:;Il!i~+_-?][}{1)(|\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$)";
+
+    std::string symbols = R"(ABCDE)";
 
     Magick::Image image;
     try {
@@ -71,7 +73,7 @@ int main(int argc, char **argv)
         image.resize(result);
 
         for(ssize_t y = 0; y < height; y++) {
-            for(ssize_t x = 0; x < width - 1; x++) {
+            for(ssize_t x = 0; x < width; x++) {
                 double brightness = intensity(image, x, y);
                 size_t index = convertToIndex(brightness, symbols.size(), 255);
                 if (!outputFilePath.empty())
@@ -79,6 +81,8 @@ int main(int argc, char **argv)
                 if (show)
                     std::cout << symbols[index];
             }
+            if (!outputFilePath.empty())
+                file << '\n';
             if (show)
                 std::cout << '\n';
         }
