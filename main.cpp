@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cmath>
 #include <ImageMagick-7/Magick++.h>
 #include <ImageMagick-7/Magick++/Color.h>
 #include "argument-parser.h"
@@ -14,7 +15,7 @@ double intensity(const Magick::Image& image, const ssize_t & x, const ssize_t & 
 }
 
 size_t convertToIndex(double number, size_t count_of_symbols, size_t size) {
-    return static_cast<size_t>(number) * count_of_symbols / size;
+    return number * count_of_symbols / size;
 }
 
 int main(int argc, char **argv)
@@ -24,8 +25,8 @@ int main(int argc, char **argv)
     std::string filePath;
     std::string outputFilePath;
     std::ofstream file;
-    size_t width = 100;
-    size_t height = 100;
+    size_t width = 50;
+    size_t height = 40;
 
     if (parser.hasAnyArgument("-h", "--help")) {
         std::cout << "Image to ASCII is the process of converting an image into text character art.\n"
@@ -54,9 +55,7 @@ int main(int argc, char **argv)
 
     Magick::InitializeMagick("");
 
-//    std::string symbols = R"(`^\",:;Il!i~+_-?][}{1)(|\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$)";
-
-    std::string symbols = R"(ABCDE)";
+    std::string symbols = R"(_.,:-=+;cba?!0123456789$W#@N)";
 
     Magick::Image image;
     try {
@@ -76,6 +75,7 @@ int main(int argc, char **argv)
             for(ssize_t x = 0; x < width; x++) {
                 double brightness = intensity(image, x, y);
                 size_t index = convertToIndex(brightness, symbols.size(), 255);
+
                 if (!outputFilePath.empty())
                     file << symbols[index];
                 if (show)
